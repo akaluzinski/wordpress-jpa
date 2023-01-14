@@ -42,7 +42,7 @@ public class User {
     @Column(name = "user_activation_key")
     private String activationKey;
 
-    @Column(name = "user_status")
+    @Column(name = "user_status", nullable = false)
     private Integer status;
 
     @Column(name = "display_name")
