@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Index;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
@@ -15,6 +17,7 @@ import lombok.Setter;
 import org.hibernate.validator.constraints.URL;
 
 import java.sql.Timestamp;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -74,5 +77,9 @@ public class User {
     @Column(name = "display_name")
     @Size(max = 255)
     private String displayName;
+
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    private Set<UserMeta> userMetaSet;
 
 }
