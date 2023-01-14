@@ -21,10 +21,13 @@ public class UserMeta {
     @Column(name = "umeta_id")
     private Long id;
 
+    @Column(name = "user_id", nullable = false)
     private Long userId;
 
+    @Column(name = "meta_key")
     private String metaKey;
 
     @Lob
+    @Column(name = "meta_value", columnDefinition = "LONGTEXT")
     private String metaValue;
 }
